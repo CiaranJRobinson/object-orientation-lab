@@ -109,9 +109,9 @@ function greeting( obj ) {
   }
   
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  //return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
-}
+
 
 
 
@@ -125,23 +125,42 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+let states ={
+  utah: 1,
+  california : 1,
+  texas : 1,
+  arizona : 1,
+}
 
+function totalPopulation (obj) {
 
+  const {utah , california , texas , arizona} = obj 
+  return utah + california + texas + arizona;
+}
+
+console.log(totalPopulation(states));
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
 /*
-  Write a function called ingredients that will take in an object. 
+Write a function called ingredients that will take in an object. 
   This object will have 3 properties named carb, fat, and protein. 
   The property values will be strings. 
   Use object destructuring to save the property values to new variables. 
-  Push these new variables to an array and return the array. 
+  Push these new variables to an array and return the array.  
 */
 
-//Code Here
-
-
+let nutFacts ={
+  carb : "45",
+  fat : "67",
+  protein : "shdfjsdkhf",
+}
+let nutArr = []
+function ingredients() {
+  const {carb, fat, protein} = nutFacts;
+  return nutArr = [carb, fat, protein];
+}
+console.log(ingredients());
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -161,7 +180,9 @@ var user = {
   Make that change without modifying the original object code above.
 */
 
-//Code Here
+user.name = ('Bryan G. Smith');
+user.email = ('bryan.smith@devmount.in');
+// console.log(user.name , user.email);
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
@@ -169,7 +190,7 @@ var user = {
   Using the user object above, delete the users age off of the object.
 */
 
-//Code Here
+delete user.age;
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
@@ -179,9 +200,16 @@ var user = {
   Print the name of your cat instance using dot notation.
 */
 
-//Code here
+class Cat {
+  constructor(name , age , color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
 
-
+const mrmeow = new Cat ("Whiskers" , 2 , "multiple");
+console.log(mrmeow.name);
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -191,8 +219,20 @@ var user = {
   Call the castSpell function on the instance of your wizard.
 */
 
-//Code here
+class Wizard {
+  constructor(name, age, favoriteSpell) {
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell;
+  }
+   castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}.`)
+}}
+ const wizzy = new Wizard ("Wizzy", 13, "Fireball");
+ wizzy.castSpell();
 
+
+ 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -216,7 +256,29 @@ var user = {
     to be newPrice.
 */
 
-//Code Here
+class Phone {
+  constructor(brand, model, storage, color, price, sold) {
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.sold = false;
+  }
+
+  sell() {
+    this.sold =true;
+    console.log(`${this.brand} ${this.model} has been sold.`)
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+}
+
+
+
+
 
   
 /*
@@ -229,7 +291,9 @@ var user = {
     - price: number
 */
 
-//Code Here
+const iphone = new Phone ("Iphone", "i10", 5, "blue", 1000);
+const samsung = new Phone ("Galaxy","S10", 10, "Grey", 1500);
+const google = new Phone ("Google","pixel", 3, "green", 400);
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -238,7 +302,8 @@ var user = {
   Then console.log that object to see the price change
 */ 
 
-//Code Here 
+iphone.changePrice(5000);
+console.log(iphone.price);
 
 
 /*
@@ -247,8 +312,8 @@ var user = {
   Print the value of that phone's sell property to make sure it's been changed to true
 */
 
-//Code Here 
-
+iphone.sell(), 
+console.log(iphone.sold);
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
@@ -266,9 +331,11 @@ const colors = {
 }
 //do not edit this object
 
-//Code Here 
 
 
+const colorsCopy = {...colors};
+
+console.log(colorsCopy);
 
 /*
  Now use the spread operator to combine the following 2 objects into one. 
@@ -294,11 +361,11 @@ const shippingInfo = {
 }
 //do not edit the objects above
 
-//Code Here
+let helensInfo = {...shippingInfo, ...contactInfo}
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
-
+console.log(helensInfo)
 
 //////////////////////////// PROBLEM 16 ////////////////////////////
 
